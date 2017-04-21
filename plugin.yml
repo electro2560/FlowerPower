@@ -1,0 +1,6 @@
+name: FlowerPower
+main: com.electro2560.dev.FlowerPower.FlowerPower
+version: 1.0.0
+website: http://dev.electro2560.com/
+author: ElectroBoy2560
+description: Flowers have powers!
