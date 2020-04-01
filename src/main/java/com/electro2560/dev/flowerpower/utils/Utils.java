@@ -1,4 +1,4 @@
-package com.electro2560.dev.FlowerPower.utils;
+package com.electro2560.dev.flowerpower.utils;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -19,8 +19,8 @@ import org.bukkit.material.MaterialData;
 import org.bukkit.util.Vector;
 import org.mcstats.MetricsLite;
 
-import com.electro2560.dev.FlowerPower.FlowerPower;
-import com.electro2560.dev.FlowerPower.bstats.Metrics;
+import com.electro2560.dev.flowerpower.FlowerPower;
+import com.electro2560.dev.flowerpower.bstats.Metrics;
 
 @SuppressWarnings("deprecation")
 public class Utils {
@@ -131,8 +131,8 @@ public class Utils {
 	}
 	
 	public static void loadRecepies(){
-		poppyMeta.setDisplayName("§c§lFireball Flower");
-		poppyMeta.setLore(Arrays.asList("§5Power: Shoot fireballs", "§bAmmo: Firecharge + Flint & Steel"));
+		poppyMeta.setDisplayName("ï¿½cï¿½lFireball Flower");
+		poppyMeta.setLore(Arrays.asList("ï¿½5Power: Shoot fireballs", "ï¿½bAmmo: Firecharge + Flint & Steel"));
 		poppy.setItemMeta(poppyMeta);
 		ShapedRecipe poppyRec = new ShapedRecipe(poppy);
 		poppyRec.shape("ldl","cfc","dcd");
@@ -143,8 +143,8 @@ public class Utils {
 		Bukkit.getServer().addRecipe(poppyRec);
 		
 		
-		redTulipMeta.setDisplayName("§c§lFire Flower");
-		redTulipMeta.setLore(Arrays.asList("§5Power: Shoot fire", "§bAmmo: Flint & Steel"));
+		redTulipMeta.setDisplayName("ï¿½cï¿½lFire Flower");
+		redTulipMeta.setLore(Arrays.asList("ï¿½5Power: Shoot fire", "ï¿½bAmmo: Flint & Steel"));
 		redTulip.setItemMeta(redTulipMeta);
 		ShapedRecipe redTulipRec = new ShapedRecipe(redTulip);
 		redTulipRec.shape("gbg","bfb","gbg");
@@ -154,8 +154,8 @@ public class Utils {
 		Bukkit.getServer().addRecipe(redTulipRec);
 		
 		
-		blueOrchidMeta.setDisplayName("§b§lIce Flower");
-		blueOrchidMeta.setLore(Arrays.asList("§5Power: Shoot blocks of ice", "§bAmmo: Ice"));
+		blueOrchidMeta.setDisplayName("ï¿½bï¿½lIce Flower");
+		blueOrchidMeta.setLore(Arrays.asList("ï¿½5Power: Shoot blocks of ice", "ï¿½bAmmo: Ice"));
 		blueOrchid.setItemMeta(blueOrchidMeta);
 		ShapedRecipe blueOrchidRec = new ShapedRecipe(blueOrchid);
 		blueOrchidRec.shape("wlw","dfd","ili");
@@ -167,8 +167,8 @@ public class Utils {
 		Bukkit.getServer().addRecipe(blueOrchidRec);
 		
 		
-		dandelionMeta.setDisplayName("§6§lKnockback Flower");
-		dandelionMeta.setLore(Arrays.asList("§5Power: Knockback players", "§bAmmo: Tripwire hook"));
+		dandelionMeta.setDisplayName("ï¿½6ï¿½lKnockback Flower");
+		dandelionMeta.setLore(Arrays.asList("ï¿½5Power: Knockback players", "ï¿½bAmmo: Tripwire hook"));
 		dandelion.setItemMeta(dandelionMeta);
 		ShapedRecipe dandelionRec = new ShapedRecipe(dandelion);
 		dandelionRec.shape("gpg","pfp","ibi");
@@ -180,8 +180,8 @@ public class Utils {
 		Bukkit.getServer().addRecipe(dandelionRec);
 		
 		
-		pinkTulipMeta.setDisplayName("§b§lPull Flower");
-		pinkTulipMeta.setLore(Arrays.asList("§5Power: Pull players", "§bAmmo: Tripwire hook"));
+		pinkTulipMeta.setDisplayName("ï¿½bï¿½lPull Flower");
+		pinkTulipMeta.setLore(Arrays.asList("ï¿½5Power: Pull players", "ï¿½bAmmo: Tripwire hook"));
 		pinkTulip.setItemMeta(pinkTulipMeta);
 		ShapedRecipe pinkTulipRec = new ShapedRecipe(pinkTulip);
 		pinkTulipRec.shape("dpd","pfp","ibi");
@@ -193,8 +193,8 @@ public class Utils {
 		Bukkit.getServer().addRecipe(pinkTulipRec);
 		
 		
-		oxeyeDaisyMeta.setDisplayName("§5§lConfusion Flower");
-		oxeyeDaisyMeta.setLore(Arrays.asList("§5Power: Confuse players", "§bAmmo: Spider eye"));
+		oxeyeDaisyMeta.setDisplayName("ï¿½5ï¿½lConfusion Flower");
+		oxeyeDaisyMeta.setLore(Arrays.asList("ï¿½5Power: Confuse players", "ï¿½bAmmo: Spider eye"));
 		oxeyeDaisy.setItemMeta(oxeyeDaisyMeta);
 		ShapedRecipe oxeyeDaisyRec = new ShapedRecipe(oxeyeDaisy);
 		oxeyeDaisyRec.shape("did","pfp","eie");
@@ -206,8 +206,8 @@ public class Utils {
 		Bukkit.getServer().addRecipe(oxeyeDaisyRec);
 		
 		
-		alliumMeta.setDisplayName("§d§lRegen Flower");
-		alliumMeta.setLore(Arrays.asList("§5Power: Regen players", "§bAmmo: 4 gold ingots"));
+		alliumMeta.setDisplayName("ï¿½dï¿½lRegen Flower");
+		alliumMeta.setLore(Arrays.asList("ï¿½5Power: Regen players", "ï¿½bAmmo: 4 gold ingots"));
 		allium.setItemMeta(alliumMeta);
 		ShapedRecipe alliumRec = new ShapedRecipe(allium);
 		alliumRec.shape("rdr","gfg","rdr");
@@ -218,8 +218,8 @@ public class Utils {
 		Bukkit.getServer().addRecipe(alliumRec);
 		
 		
-		orangeTulipMeta.setDisplayName("§6§lPotato Flower");
-		orangeTulipMeta.setLore(Arrays.asList("§5Power: Turn players into potatoes", "§bAmmo: poisoned potato"));
+		orangeTulipMeta.setDisplayName("ï¿½6ï¿½lPotato Flower");
+		orangeTulipMeta.setLore(Arrays.asList("ï¿½5Power: Turn players into potatoes", "ï¿½bAmmo: poisoned potato"));
 		orangeTulip.setItemMeta(orangeTulipMeta);
 		ShapedRecipe orangeTulipRec = new ShapedRecipe(orangeTulip);
 		orangeTulipRec.shape("pdp","dfd","pdp");
@@ -229,8 +229,8 @@ public class Utils {
 		Bukkit.getServer().addRecipe(orangeTulipRec);
 		
 		
-		azureBluetMeta.setDisplayName("§b§lSnowball Flower");
-		azureBluetMeta.setLore(Arrays.asList("§5Power: Shoot snowballs", "§bAmmo: snowball"));
+		azureBluetMeta.setDisplayName("ï¿½bï¿½lSnowball Flower");
+		azureBluetMeta.setLore(Arrays.asList("ï¿½5Power: Shoot snowballs", "ï¿½bAmmo: snowball"));
 		azureBluet.setItemMeta(azureBluetMeta);
 		ShapedRecipe azureBluetRec = new ShapedRecipe(azureBluet);
 		azureBluetRec.shape("dsd","sfs","wsw");
@@ -241,8 +241,8 @@ public class Utils {
 		Bukkit.getServer().addRecipe(azureBluetRec);
 		
 		
-		whiteTulipMeta.setDisplayName("§f§lWeb Flower");
-		whiteTulipMeta.setLore(Arrays.asList("§5Power: Shoot webs", "§bAmmo: string"));
+		whiteTulipMeta.setDisplayName("ï¿½fï¿½lWeb Flower");
+		whiteTulipMeta.setLore(Arrays.asList("ï¿½5Power: Shoot webs", "ï¿½bAmmo: string"));
 		whiteTulip.setItemMeta(whiteTulipMeta);
 		ShapedRecipe whiteTulipRec = new ShapedRecipe(whiteTulip);
 		whiteTulipRec.shape("dsd","sfs","dsd");

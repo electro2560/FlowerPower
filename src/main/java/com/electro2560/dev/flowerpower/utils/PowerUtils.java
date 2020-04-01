@@ -1,4 +1,4 @@
-package com.electro2560.dev.FlowerPower.utils;
+package com.electro2560.dev.flowerpower.utils;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -13,7 +13,7 @@ import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitRunnable;
 
-import com.electro2560.dev.FlowerPower.FlowerPower;
+import com.electro2560.dev.flowerpower.FlowerPower;
 
 public class PowerUtils {
 	

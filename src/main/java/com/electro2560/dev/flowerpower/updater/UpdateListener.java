@@ -1,4 +1,4 @@
-package com.electro2560.dev.FlowerPower.updater;
+package com.electro2560.dev.flowerpower.updater;
 
 import java.beans.ConstructorProperties;
 
@@ -6,9 +6,9 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 
-import com.electro2560.dev.FlowerPower.FlowerPower;
-import com.electro2560.dev.FlowerPower.utils.Perms;
-import com.electro2560.dev.FlowerPower.utils.Utils;
+import com.electro2560.dev.flowerpower.FlowerPower;
+import com.electro2560.dev.flowerpower.utils.Perms;
+import com.electro2560.dev.flowerpower.utils.Utils;
 
 public class UpdateListener implements Listener {
 	private final FlowerPower plugin;

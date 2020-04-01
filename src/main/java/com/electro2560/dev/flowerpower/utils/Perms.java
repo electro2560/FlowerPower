@@ -1,4 +1,4 @@
-package com.electro2560.dev.FlowerPower.utils;
+package com.electro2560.dev.flowerpower.utils;
 
 import org.bukkit.permissions.Permission;
 

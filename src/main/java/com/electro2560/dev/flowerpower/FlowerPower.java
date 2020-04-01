@@ -1,4 +1,4 @@
-package com.electro2560.dev.FlowerPower;
+package com.electro2560.dev.flowerpower;
 
 import java.io.File;
 
@@ -6,9 +6,9 @@ import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import com.electro2560.dev.FlowerPower.listeners.FlowerListener;
-import com.electro2560.dev.FlowerPower.updater.UpdateListener;
-import com.electro2560.dev.FlowerPower.utils.Utils;
+import com.electro2560.dev.flowerpower.listeners.FlowerListener;
+import com.electro2560.dev.flowerpower.updater.UpdateListener;
+import com.electro2560.dev.flowerpower.utils.Utils;
 
 public class FlowerPower extends JavaPlugin{
 

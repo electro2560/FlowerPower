@@ -1,4 +1,4 @@
-package com.electro2560.dev.FlowerPower.updater;
+package com.electro2560.dev.flowerpower.updater;
 
 import org.apache.commons.lang.StringUtils;
 

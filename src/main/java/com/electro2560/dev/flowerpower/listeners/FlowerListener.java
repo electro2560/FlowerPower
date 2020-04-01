@@ -1,4 +1,4 @@
-package com.electro2560.dev.FlowerPower.listeners;
+package com.electro2560.dev.flowerpower.listeners;
 
 import java.util.ArrayList;
 
@@ -14,10 +14,10 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
-import com.electro2560.dev.FlowerPower.FlowerPower;
-import com.electro2560.dev.FlowerPower.utils.Perms;
-import com.electro2560.dev.FlowerPower.utils.PowerUtils;
-import com.electro2560.dev.FlowerPower.utils.Utils;
+import com.electro2560.dev.flowerpower.FlowerPower;
+import com.electro2560.dev.flowerpower.utils.Perms;
+import com.electro2560.dev.flowerpower.utils.PowerUtils;
+import com.electro2560.dev.flowerpower.utils.Utils;
 
 public class FlowerListener implements Listener{
 	
