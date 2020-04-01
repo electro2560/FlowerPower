@@ -11,6 +11,7 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.Damageable;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
@@ -23,8 +24,6 @@ public class FlowerListener implements Listener{
 	
 	@EventHandler
 	public void onPlayerInteract(PlayerInteractEvent event){
-		if(event.isCancelled()) return;
-		
 		Player player = event.getPlayer();
 		
 		@SuppressWarnings("deprecation")
@@ -78,12 +77,11 @@ public class FlowerListener implements Listener{
 				for (int i = 0; i < inv.getSize(); i++) {
 					if (inv.getItem(i).getType() == Material.FLINT_AND_STEEL) {
 						ItemStack s = inv.getItem(i);
-
-						s.setDurability((short) (s.getDurability() + 1));
-
-						if (s.getDurability() == 65) s.setType(Material.AIR);
-
-						inv.setItem(i, s);
+						Damageable meta = (Damageable) s.getItemMeta();
+						
+						meta.setDamage(meta.getDamage() + 1);
+						
+						if(meta.getDamage() > Material.FLINT_AND_STEEL.getMaxDurability()) inv.setItem(i, null);
 						
 						break;
 					}
@@ -108,12 +106,11 @@ public class FlowerListener implements Listener{
 				for (int i = 0; i < inv.getSize(); i++) {
 					if (inv.getItem(i).getType() == Material.FLINT_AND_STEEL) {
 						ItemStack s = inv.getItem(i);
-
-						s.setDurability((short) (s.getDurability() + 1));
-
-						if (s.getDurability() == 65) s.setType(Material.AIR);
-
-						inv.setItem(i, s);
+						Damageable meta = (Damageable) s.getItemMeta();
+						
+						meta.setDamage(meta.getDamage() + 1);
+						
+						if(meta.getDamage() > Material.FLINT_AND_STEEL.getMaxDurability()) inv.setItem(i, null);
 						
 						break;
 					}
@@ -261,12 +258,12 @@ public class FlowerListener implements Listener{
 			event.setCancelled(true);
 			
 			if ((FlowerPower.usePermissions && player.hasPermission(Perms.azurebluet)) || !FlowerPower.usePermissions) {
-				if (!inv.contains(Material.SNOW_BALL, 1)) {
+				if (!inv.contains(Material.SNOWBALL, 1)) {
 					player.sendMessage(ChatColor.RED + "You need ammo!");
 					return;
 				}
 
-				inv.remove(new ItemStack(Material.SNOW_BALL, 1));
+				inv.remove(new ItemStack(Material.SNOWBALL, 1));
 
 				PowerUtils.shootSnowball(player);
 			}else player.sendMessage(ChatColor.RED + "No permission!");
@@ -286,7 +283,7 @@ public class FlowerListener implements Listener{
 
 				inv.remove(new ItemStack(Material.STRING, 1));
 
-				Utils.shootBlock(Material.WEB, player, (byte) 0, 2D);
+				Utils.shootBlock(Material.COBWEB, player, (byte) 0, 2D);
 			}else player.sendMessage(ChatColor.RED + "No permission!");
 		}
 

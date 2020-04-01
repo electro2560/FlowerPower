@@ -26,38 +26,38 @@ import com.electro2560.dev.flowerpower.bstats.Metrics;
 public class Utils {
 	
 	
-	public static ItemStack poppy = new ItemStack(Material.getMaterial(38), 1, (byte) 0);
+	public static ItemStack poppy = new ItemStack(Material.POPPY);
 	public static ItemMeta poppyMeta = poppy.getItemMeta();
 	
-	public static ItemStack redTulip = new ItemStack(Material.getMaterial(38), 1, (byte) 4);
+	public static ItemStack redTulip = new ItemStack(Material.RED_TULIP);
 	public static ItemMeta redTulipMeta = redTulip.getItemMeta();
 	
-	public static ItemStack blueOrchid = new ItemStack(Material.getMaterial(38), 1, (byte) 1);
+	public static ItemStack blueOrchid = new ItemStack(Material.BLUE_ORCHID);
 	public static ItemMeta blueOrchidMeta = blueOrchid.getItemMeta();
 	
-	public static ItemStack dandelion = new ItemStack(Material.getMaterial(37), 1, (byte) 0);
+	public static ItemStack dandelion = new ItemStack(Material.DANDELION);
 	public static ItemMeta dandelionMeta = dandelion.getItemMeta();
 	
-	public static ItemStack pinkTulip = new ItemStack(Material.getMaterial(38), 1, (byte) 7);
+	public static ItemStack pinkTulip = new ItemStack(Material.PINK_TULIP);
 	public static ItemMeta pinkTulipMeta = pinkTulip.getItemMeta();
 	
-	public static ItemStack oxeyeDaisy = new ItemStack(Material.getMaterial(38), 1, (byte) 8);
+	public static ItemStack oxeyeDaisy = new ItemStack(Material.OXEYE_DAISY);
 	public static ItemMeta oxeyeDaisyMeta = oxeyeDaisy.getItemMeta();
 	
-	public static ItemStack allium = new ItemStack(Material.getMaterial(38), 1, (byte) 2);
+	public static ItemStack allium = new ItemStack(Material.ALLIUM);
 	public static ItemMeta alliumMeta = allium.getItemMeta();
 	
-	public static ItemStack orangeTulip = new ItemStack(Material.getMaterial(38), 1, (byte) 5);
+	public static ItemStack orangeTulip = new ItemStack(Material.ORANGE_TULIP);
 	public static ItemMeta orangeTulipMeta = orangeTulip.getItemMeta();
 	
-	public static ItemStack azureBluet = new ItemStack(Material.getMaterial(38), 1, (byte) 3);
+	public static ItemStack azureBluet = new ItemStack(Material.AZURE_BLUET);
 	public static ItemMeta azureBluetMeta = azureBluet.getItemMeta();
 	
-	public static ItemStack whiteTulip = new ItemStack(Material.getMaterial(38), 1, (byte) 6);
+	public static ItemStack whiteTulip = new ItemStack(Material.WHITE_TULIP);
 	public static ItemMeta whiteTulipMeta = whiteTulip.getItemMeta();
 	
 	public static Location getTargetBlock(Player player){
-		Block targetBlock = player.getTargetBlock((HashSet<Byte>) null, 100); 
+		Block targetBlock = player.getTargetBlock(null, 100); 
 		
 		return targetBlock.getLocation();
 	}
@@ -138,8 +138,8 @@ public class Utils {
 		poppyRec.shape("ldl","cfc","dcd");
 		poppyRec.setIngredient('l', Material.LAVA_BUCKET);
 		poppyRec.setIngredient('d', Material.DIAMOND);
-		poppyRec.setIngredient('c', Material.FIREBALL);
-		poppyRec.setIngredient('f', new MaterialData(Material.getMaterial(38), (byte) 0));
+		poppyRec.setIngredient('c', Material.FIRE_CHARGE);
+		poppyRec.setIngredient('f', new MaterialData(Material.POPPY));
 		Bukkit.getServer().addRecipe(poppyRec);
 		
 		
@@ -150,7 +150,7 @@ public class Utils {
 		redTulipRec.shape("gbg","bfb","gbg");
 		redTulipRec.setIngredient('g', Material.GOLD_INGOT);
 		redTulipRec.setIngredient('b', Material.BLAZE_ROD);
-		redTulipRec.setIngredient('f', new MaterialData(Material.getMaterial(38), (byte) 4));
+		redTulipRec.setIngredient('f', Material.RED_TULIP);
 		Bukkit.getServer().addRecipe(redTulipRec);
 		
 		
@@ -163,7 +163,7 @@ public class Utils {
 		blueOrchidRec.setIngredient('l', Material.LAPIS_BLOCK);
 		blueOrchidRec.setIngredient('d', Material.DIAMOND);
 		blueOrchidRec.setIngredient('i', Material.ICE);
-		blueOrchidRec.setIngredient('f', new MaterialData(Material.getMaterial(38), (byte) 1));
+		blueOrchidRec.setIngredient('f', Material.BLUE_ORCHID);
 		Bukkit.getServer().addRecipe(blueOrchidRec);
 		
 		
@@ -176,7 +176,7 @@ public class Utils {
 		dandelionRec.setIngredient('p', Material.FISHING_ROD);
 		dandelionRec.setIngredient('i', Material.IRON_BLOCK);
 		dandelionRec.setIngredient('b', Material.BOW);
-		dandelionRec.setIngredient('f', new MaterialData(Material.getMaterial(37), (byte) 0));
+		dandelionRec.setIngredient('f', Material.DANDELION);
 		Bukkit.getServer().addRecipe(dandelionRec);
 		
 		
@@ -189,7 +189,7 @@ public class Utils {
 		pinkTulipRec.setIngredient('p', Material.FISHING_ROD);
 		pinkTulipRec.setIngredient('i', Material.IRON_BLOCK);
 		pinkTulipRec.setIngredient('b', Material.BOW);
-		pinkTulipRec.setIngredient('f', new MaterialData(Material.getMaterial(38), (byte) 7));
+		pinkTulipRec.setIngredient('f', Material.PINK_TULIP);
 		Bukkit.getServer().addRecipe(pinkTulipRec);
 		
 		
@@ -199,10 +199,10 @@ public class Utils {
 		ShapedRecipe oxeyeDaisyRec = new ShapedRecipe(oxeyeDaisy);
 		oxeyeDaisyRec.shape("did","pfp","eie");
 		oxeyeDaisyRec.setIngredient('d', Material.DIAMOND);
-		oxeyeDaisyRec.setIngredient('i', Material.INK_SACK);
-		oxeyeDaisyRec.setIngredient('p', new MaterialData(Material.getMaterial(349), (byte) 3));
+		oxeyeDaisyRec.setIngredient('i', Material.INK_SAC);
+		oxeyeDaisyRec.setIngredient('p', Material.PUFFERFISH);
 		oxeyeDaisyRec.setIngredient('e', Material.SPIDER_EYE);
-		oxeyeDaisyRec.setIngredient('f', new MaterialData(Material.getMaterial(38), (byte) 8));
+		oxeyeDaisyRec.setIngredient('f', Material.OXEYE_DAISY);
 		Bukkit.getServer().addRecipe(oxeyeDaisyRec);
 		
 		
@@ -214,7 +214,7 @@ public class Utils {
 		alliumRec.setIngredient('r', Material.REDSTONE_BLOCK);
 		alliumRec.setIngredient('d', Material.DIAMOND);
 		alliumRec.setIngredient('g', Material.GOLDEN_APPLE);
-		alliumRec.setIngredient('f', new MaterialData(Material.getMaterial(38), (byte) 2));
+		alliumRec.setIngredient('f', Material.ALLIUM);
 		Bukkit.getServer().addRecipe(alliumRec);
 		
 		
@@ -225,7 +225,7 @@ public class Utils {
 		orangeTulipRec.shape("pdp","dfd","pdp");
 		orangeTulipRec.setIngredient('d', Material.DIAMOND);
 		orangeTulipRec.setIngredient('p', Material.POISONOUS_POTATO);
-		orangeTulipRec.setIngredient('f', new MaterialData(Material.getMaterial(38), (byte) 5));
+		orangeTulipRec.setIngredient('f', Material.ORANGE_TULIP);
 		Bukkit.getServer().addRecipe(orangeTulipRec);
 		
 		
@@ -237,7 +237,7 @@ public class Utils {
 		azureBluetRec.setIngredient('d', Material.DIAMOND);
 		azureBluetRec.setIngredient('s', Material.SNOW_BLOCK);
 		azureBluetRec.setIngredient('w', Material.WATER_BUCKET);
-		azureBluetRec.setIngredient('f', new MaterialData(Material.getMaterial(38), (byte) 3));
+		azureBluetRec.setIngredient('f', Material.AZURE_BLUET);
 		Bukkit.getServer().addRecipe(azureBluetRec);
 		
 		
@@ -248,7 +248,7 @@ public class Utils {
 		whiteTulipRec.shape("dsd","sfs","dsd");
 		whiteTulipRec.setIngredient('d', Material.DIAMOND);
 		whiteTulipRec.setIngredient('s', Material.STRING);
-		whiteTulipRec.setIngredient('f', new MaterialData(Material.getMaterial(38), (byte) 6));
+		whiteTulipRec.setIngredient('f', Material.WHITE_TULIP);
 		Bukkit.getServer().addRecipe(whiteTulipRec);
 	}
 	

@@ -1,6 +1,7 @@
 name: FlowerPower
 main: com.electro2560.dev.flowerpower.FlowerPower
-version: 1.0.0
+version: ${project.version}
+api-version: 1.13
 website: https://dev.electro2560.com/
-author: ElectroBoy2560
+author: electro2560
 description: Flowers have powers!

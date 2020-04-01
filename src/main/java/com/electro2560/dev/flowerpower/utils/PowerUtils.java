@@ -37,7 +37,7 @@ public class PowerUtils {
 
 	@SuppressWarnings("deprecation")
 	public static void turnToPotato(final Player player){
-		final ItemStack potato = new ItemStack(Material.getMaterial(392), 1);
+		final ItemStack potato = new ItemStack(Material.POTATO, 1);
 		final Item item = Bukkit.getServer().getWorld(player.getWorld().getName()).dropItem(player.getLocation(), potato);
 		
 		item.setPickupDelay(320);

@@ -4,9 +4,8 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.electro2560.dev</groupId>
-	<artifactId>flowerpower</artifactId>
-	<version>1.0.0</version>
-	<name>FlowerPower</name>
+	<artifactId>FlowerPower</artifactId>
+	<version>1.1.0</version>
 
 	<developers>
 		<developer>
@@ -82,9 +81,16 @@
 		<dependency>
 			<groupId>org.spigotmc</groupId>
 			<artifactId>spigot-api</artifactId>
-			<version>1.15-R0.1-SNAPSHOT</version>
+			<version>1.13-R0.1-SNAPSHOT</version>
 			<scope>provided</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>com.googlecode.json-simple</groupId>
+			<artifactId>json-simple</artifactId>
+			<version>1.1.1</version>
+		</dependency>
+
 	</dependencies>
 
 </project>
