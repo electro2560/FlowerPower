@@ -2,7 +2,6 @@ package com.electro2560.dev.flowerpower.listeners;
 
 import java.util.ArrayList;
 
-import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -43,7 +42,7 @@ public class FlowerListener implements Listener{
 
 			if ((FlowerPower.usePermissions && player.hasPermission(Perms.dandelion)) || !FlowerPower.usePermissions) {
 				if (!inv.contains(Material.TRIPWIRE_HOOK, 1)) {
-					player.sendMessage(ChatColor.RED + "You need ammo!");
+					player.sendMessage(Utils.color("&cYou need ammo!"));
 					return;
 				}
 
@@ -52,12 +51,12 @@ public class FlowerListener implements Listener{
 				ArrayList<Player> nearby = Utils.getNearbyPlayers(Utils.getTargetBlock(player), 5, player);
 					
 				if(nearby == null || nearby.size() == 0){
-					player.sendMessage(ChatColor.RED + "No players found!");
+					player.sendMessage(Utils.color("&cNo players found!"));
 					return;
 				}
 					
 				for(Player target : nearby) Utils.knockbackPlayer(target, 2);
-			}else player.sendMessage(ChatColor.RED + "No permission!");
+			}else player.sendMessage(Utils.color("&cNo permission!"));
 		} else if (stack.isSimilar(Utils.poppy)) {
 			// Poppy
 			// Shoot Fire balls
@@ -68,7 +67,7 @@ public class FlowerListener implements Listener{
 
 			if ((FlowerPower.usePermissions && player.hasPermission(Perms.poppy)) || !FlowerPower.usePermissions) {
 				if (!inv.contains(Material.TRIPWIRE_HOOK, 1) || !inv.contains(Material.FLINT_AND_STEEL, 1)) {
-					player.sendMessage(ChatColor.RED + "You need ammo!");
+					player.sendMessage(Utils.color("&cYou need ammo!"));
 					return;
 				}
 
@@ -88,7 +87,7 @@ public class FlowerListener implements Listener{
 				}
 				
 				PowerUtils.shootFireball(player);
-			}else player.sendMessage(ChatColor.RED + "No permission!");
+			}else player.sendMessage(Utils.color("&cNo permission!"));
 		} else if (stack.isSimilar(Utils.redTulip)) {
 			// Red Tulip
 			// Shoot Fire
@@ -99,7 +98,7 @@ public class FlowerListener implements Listener{
 
 			if ((FlowerPower.usePermissions && player.hasPermission(Perms.redtulip)) || !FlowerPower.usePermissions) {
 				if (!inv.contains(Material.FLINT_AND_STEEL, 1)) {
-					player.sendMessage(ChatColor.RED + "You need ammo!");
+					player.sendMessage(Utils.color("&cYou need ammo!"));
 					return;
 				}
 
@@ -117,7 +116,7 @@ public class FlowerListener implements Listener{
 				}
 				
 				PowerUtils.shootSmallFireball(player);
-			}else player.sendMessage(ChatColor.RED + "No permission!");
+			}else player.sendMessage(Utils.color("&cNo permission!"));
 		} else if (stack.isSimilar(Utils.blueOrchid)) {
 			// Blue Orchid
 			// Shoot Ice
@@ -136,10 +135,10 @@ public class FlowerListener implements Listener{
 					
 					Utils.shootBlock(Material.PACKED_ICE, player, (byte) 0, 2D);
 				}else{
-					player.sendMessage(ChatColor.RED + "You need ammo!");
+					player.sendMessage(Utils.color("&cYou need ammo!"));
 					return;
 				}
-			}else player.sendMessage(ChatColor.RED + "No permission!");
+			}else player.sendMessage(Utils.color("&cNo permission!"));
 		} else if (stack.isSimilar(Utils.pinkTulip)) {
 			// Pink tulip
 			// Pull target player towards player
@@ -150,7 +149,7 @@ public class FlowerListener implements Listener{
 			
 			if ((FlowerPower.usePermissions && player.hasPermission(Perms.pinktulip)) || !FlowerPower.usePermissions) {
 				if (!inv.contains(Material.TRIPWIRE_HOOK, 1)) {
-					player.sendMessage(ChatColor.RED + "You need ammo!");
+					player.sendMessage(Utils.color("&cYou need ammo!"));
 					return;
 				}
 
@@ -159,12 +158,12 @@ public class FlowerListener implements Listener{
 				ArrayList<Player> nearby = Utils.getNearbyPlayers(Utils.getTargetBlock(player), 5, player);
 					
 				if(nearby == null || nearby.size() == 0){
-					player.sendMessage(ChatColor.RED + "No players found!");
+					player.sendMessage(Utils.color("&cNo players found!"));
 					return;
 				}
 					
 				for(Player target : nearby) Utils.pullPlayer(target, 2);
-			}else player.sendMessage(ChatColor.RED + "No permission!");
+			}else player.sendMessage(Utils.color("&cNo permission!"));
 		} else if (stack.isSimilar(Utils.oxeyeDaisy)) {
 			// Oxeye Daisy
 			// Give target player blindness/nausea
@@ -175,7 +174,7 @@ public class FlowerListener implements Listener{
 
 			if ((FlowerPower.usePermissions && player.hasPermission(Perms.oxeyedaisy)) || !FlowerPower.usePermissions) {
 				if (!inv.contains(Material.SPIDER_EYE, 1)) {
-					player.sendMessage(ChatColor.RED + "You need ammo!");
+					player.sendMessage(Utils.color("&cYou need ammo!"));
 					return;
 				}
 
@@ -184,7 +183,7 @@ public class FlowerListener implements Listener{
 				ArrayList<Player> nearby = Utils.getNearbyPlayers(Utils.getTargetBlock(player), 5, player);
 					
 				if(nearby == null || nearby.size() == 0){
-					player.sendMessage(ChatColor.RED + "No players found!");
+					player.sendMessage(Utils.color("&cNo players found!"));
 					return;
 				}
 					
@@ -194,7 +193,7 @@ public class FlowerListener implements Listener{
 					target.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 300, 1));
 					target.addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, 300, 1));
 				}
-			}else player.sendMessage(ChatColor.RED + "No permission!");
+			}else player.sendMessage(Utils.color("&cNo permission!"));
 		} else if (stack.isSimilar(Utils.allium)) {
 			// Alluim
 			// Regen II
@@ -205,7 +204,7 @@ public class FlowerListener implements Listener{
 
 			if ((FlowerPower.usePermissions && player.hasPermission(Perms.allium)) || !FlowerPower.usePermissions) {
 				if (!inv.contains(Material.GOLD_INGOT, 4)) {
-					player.sendMessage(ChatColor.RED + "You need ammo!");
+					player.sendMessage(Utils.color("&cYou need ammo!"));
 					return;
 				}
 
@@ -214,7 +213,7 @@ public class FlowerListener implements Listener{
 				ArrayList<Player> nearby = Utils.getNearbyPlayers(Utils.getTargetBlock(player), 5, player);
 					
 				if(nearby == null || nearby.size() == 0){
-					player.sendMessage(ChatColor.RED + "No players found!");
+					player.sendMessage(Utils.color("&cNo players found!"));
 					return;
 				}
 					
@@ -223,7 +222,7 @@ public class FlowerListener implements Listener{
 					
 					target.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 300, 2));
 				}
-			}else player.sendMessage(ChatColor.RED + "No permission!");
+			}else player.sendMessage(Utils.color("&cNo permission!"));
 		} else if (stack.isSimilar(Utils.orangeTulip)) {
 			// Orange Tulip
 			// Turn to Potato
@@ -234,7 +233,7 @@ public class FlowerListener implements Listener{
 
 			if ((FlowerPower.usePermissions && player.hasPermission(Perms.orangetulip)) || !FlowerPower.usePermissions) {
 				if (!inv.contains(Material.POISONOUS_POTATO, 1)) {
-					player.sendMessage(ChatColor.RED + "You need ammo!");
+					player.sendMessage(Utils.color("&cYou need ammo!"));
 					return;
 				}
 
@@ -243,14 +242,14 @@ public class FlowerListener implements Listener{
 				ArrayList<Player> nearby = Utils.getNearbyPlayers(Utils.getTargetBlock(player), 5, player);
 					
 				if(nearby == null || nearby.size() == 0){
-					player.sendMessage(ChatColor.RED + "No players found!");
+					player.sendMessage(Utils.color("&cNo players found!"));
 					return;
 				}
 					
 				for(Player target : nearby){
 					PowerUtils.turnToPotato(target);
 				}
-			}else player.sendMessage(ChatColor.RED + "No permission!");
+			}else player.sendMessage(Utils.color("&cNo permission!"));
 		} else if (stack.isSimilar(Utils.azureBluet)) {
 			// Azure Bluet
 			// Shoot snow balls, but faster than normal
@@ -259,14 +258,14 @@ public class FlowerListener implements Listener{
 			
 			if ((FlowerPower.usePermissions && player.hasPermission(Perms.azurebluet)) || !FlowerPower.usePermissions) {
 				if (!inv.contains(Material.SNOWBALL, 1)) {
-					player.sendMessage(ChatColor.RED + "You need ammo!");
+					player.sendMessage(Utils.color("&cYou need ammo!"));
 					return;
 				}
 
 				inv.remove(new ItemStack(Material.SNOWBALL, 1));
 
 				PowerUtils.shootSnowball(player);
-			}else player.sendMessage(ChatColor.RED + "No permission!");
+			}else player.sendMessage(Utils.color("&cNo permission!"));
 		} else if (stack.isSimilar(Utils.whiteTulip)) {
 			// White Tulip
 			// Shoot webs
@@ -277,14 +276,14 @@ public class FlowerListener implements Listener{
 
 			if ((FlowerPower.usePermissions && player.hasPermission(Perms.whitetulip)) || !FlowerPower.usePermissions) {
 				if (!inv.contains(Material.STRING, 1)) {
-					player.sendMessage(ChatColor.RED + "You need ammo!");
+					player.sendMessage(Utils.color("&cYou need ammo!"));
 					return;
 				}
 
 				inv.remove(new ItemStack(Material.STRING, 1));
 
 				Utils.shootBlock(Material.COBWEB, player, (byte) 0, 2D);
-			}else player.sendMessage(ChatColor.RED + "No permission!");
+			}else player.sendMessage(Utils.color("&cNo permission!"));
 		}
 
 		player.updateInventory();

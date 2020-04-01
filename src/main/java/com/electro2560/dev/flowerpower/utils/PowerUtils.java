@@ -1,7 +1,6 @@
 package com.electro2560.dev.flowerpower.utils;
 
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Fireball;
 import org.bukkit.entity.Item;
@@ -48,7 +47,7 @@ public class PowerUtils {
 		
 		player.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 320, 1));
 		
-		player.sendMessage(ChatColor.GREEN + "" + ChatColor.BOLD +  "You have been turned into a potato!");
+		player.sendMessage(Utils.color("&a&lYou have been turned into a potato!"));
 		
 		new BukkitRunnable(){
 			@Override

@@ -4,8 +4,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -25,36 +27,16 @@ import com.electro2560.dev.flowerpower.bstats.Metrics;
 @SuppressWarnings("deprecation")
 public class Utils {
 	
-	
 	public static ItemStack poppy = new ItemStack(Material.POPPY);
-	public static ItemMeta poppyMeta = poppy.getItemMeta();
-	
 	public static ItemStack redTulip = new ItemStack(Material.RED_TULIP);
-	public static ItemMeta redTulipMeta = redTulip.getItemMeta();
-	
 	public static ItemStack blueOrchid = new ItemStack(Material.BLUE_ORCHID);
-	public static ItemMeta blueOrchidMeta = blueOrchid.getItemMeta();
-	
 	public static ItemStack dandelion = new ItemStack(Material.DANDELION);
-	public static ItemMeta dandelionMeta = dandelion.getItemMeta();
-	
 	public static ItemStack pinkTulip = new ItemStack(Material.PINK_TULIP);
-	public static ItemMeta pinkTulipMeta = pinkTulip.getItemMeta();
-	
 	public static ItemStack oxeyeDaisy = new ItemStack(Material.OXEYE_DAISY);
-	public static ItemMeta oxeyeDaisyMeta = oxeyeDaisy.getItemMeta();
-	
 	public static ItemStack allium = new ItemStack(Material.ALLIUM);
-	public static ItemMeta alliumMeta = allium.getItemMeta();
-	
 	public static ItemStack orangeTulip = new ItemStack(Material.ORANGE_TULIP);
-	public static ItemMeta orangeTulipMeta = orangeTulip.getItemMeta();
-	
 	public static ItemStack azureBluet = new ItemStack(Material.AZURE_BLUET);
-	public static ItemMeta azureBluetMeta = azureBluet.getItemMeta();
-	
 	public static ItemStack whiteTulip = new ItemStack(Material.WHITE_TULIP);
-	public static ItemMeta whiteTulipMeta = whiteTulip.getItemMeta();
 	
 	public static Location getTargetBlock(Player player){
 		Block targetBlock = player.getTargetBlock(null, 100); 
@@ -131,9 +113,12 @@ public class Utils {
 	}
 	
 	public static void loadRecepies(){
-		poppyMeta.setDisplayName("§c§lFireball Flower");
-		poppyMeta.setLore(Arrays.asList("§5Power: Shoot fireballs", "§bAmmo: Firecharge + Flint & Steel"));
-		poppy.setItemMeta(poppyMeta);
+		ItemMeta meta;
+		
+		meta = poppy.getItemMeta();
+		meta.setDisplayName(color("&c&lFireball Flower"));
+		meta.setLore(color(Arrays.asList("&5Power: Shoot fireballs", "&bAmmo: Firecharge + Flint & Steel")));
+		poppy.setItemMeta(meta);
 		ShapedRecipe poppyRec = new ShapedRecipe(poppy);
 		poppyRec.shape("ldl","cfc","dcd");
 		poppyRec.setIngredient('l', Material.LAVA_BUCKET);
@@ -143,9 +128,10 @@ public class Utils {
 		Bukkit.getServer().addRecipe(poppyRec);
 		
 		
-		redTulipMeta.setDisplayName("§c§lFire Flower");
-		redTulipMeta.setLore(Arrays.asList("§5Power: Shoot fire", "§bAmmo: Flint & Steel"));
-		redTulip.setItemMeta(redTulipMeta);
+		meta = redTulip.getItemMeta();
+		meta.setDisplayName(color("&c&lFire Flower"));
+		meta.setLore(color(Arrays.asList("&5Power: Shoot fire", "&bAmmo: Flint & Steel")));
+		redTulip.setItemMeta(meta);
 		ShapedRecipe redTulipRec = new ShapedRecipe(redTulip);
 		redTulipRec.shape("gbg","bfb","gbg");
 		redTulipRec.setIngredient('g', Material.GOLD_INGOT);
@@ -154,9 +140,10 @@ public class Utils {
 		Bukkit.getServer().addRecipe(redTulipRec);
 		
 		
-		blueOrchidMeta.setDisplayName("§b§lIce Flower");
-		blueOrchidMeta.setLore(Arrays.asList("§5Power: Shoot blocks of ice", "§bAmmo: Ice"));
-		blueOrchid.setItemMeta(blueOrchidMeta);
+		meta = blueOrchid.getItemMeta();
+		meta.setDisplayName(color("&b&lIce Flower"));
+		meta.setLore(color(Arrays.asList("&5Power: Shoot blocks of ice", "&bAmmo: Ice")));
+		blueOrchid.setItemMeta(meta);
 		ShapedRecipe blueOrchidRec = new ShapedRecipe(blueOrchid);
 		blueOrchidRec.shape("wlw","dfd","ili");
 		blueOrchidRec.setIngredient('w', Material.WATER_BUCKET);
@@ -167,9 +154,10 @@ public class Utils {
 		Bukkit.getServer().addRecipe(blueOrchidRec);
 		
 		
-		dandelionMeta.setDisplayName("§6§lKnockback Flower");
-		dandelionMeta.setLore(Arrays.asList("§5Power: Knockback players", "§bAmmo: Tripwire hook"));
-		dandelion.setItemMeta(dandelionMeta);
+		meta = dandelion.getItemMeta();
+		meta.setDisplayName(color("&6&lKnockback Flower"));
+		meta.setLore(color(Arrays.asList("&5Power: Knockback players", "&bAmmo: Tripwire hook")));
+		dandelion.setItemMeta(meta);
 		ShapedRecipe dandelionRec = new ShapedRecipe(dandelion);
 		dandelionRec.shape("gpg","pfp","ibi");
 		dandelionRec.setIngredient('g', Material.GOLD_INGOT);
@@ -180,9 +168,10 @@ public class Utils {
 		Bukkit.getServer().addRecipe(dandelionRec);
 		
 		
-		pinkTulipMeta.setDisplayName("§b§lPull Flower");
-		pinkTulipMeta.setLore(Arrays.asList("§5Power: Pull players", "§bAmmo: Tripwire hook"));
-		pinkTulip.setItemMeta(pinkTulipMeta);
+		meta = pinkTulip.getItemMeta();
+		meta.setDisplayName(color("&b&lPull Flower"));
+		meta.setLore(color(Arrays.asList("&5Power: Pull players", "&bAmmo: Tripwire hook")));
+		pinkTulip.setItemMeta(meta);
 		ShapedRecipe pinkTulipRec = new ShapedRecipe(pinkTulip);
 		pinkTulipRec.shape("dpd","pfp","ibi");
 		pinkTulipRec.setIngredient('d', Material.DIAMOND);
@@ -193,9 +182,10 @@ public class Utils {
 		Bukkit.getServer().addRecipe(pinkTulipRec);
 		
 		
-		oxeyeDaisyMeta.setDisplayName("§5§lConfusion Flower");
-		oxeyeDaisyMeta.setLore(Arrays.asList("§5Power: Confuse players", "§bAmmo: Spider eye"));
-		oxeyeDaisy.setItemMeta(oxeyeDaisyMeta);
+		meta = oxeyeDaisy.getItemMeta();
+		meta.setDisplayName(color("&5&lConfusion Flower"));
+		meta.setLore(color(Arrays.asList("&5Power: Confuse players", "&bAmmo: Spider eye")));
+		oxeyeDaisy.setItemMeta(meta);
 		ShapedRecipe oxeyeDaisyRec = new ShapedRecipe(oxeyeDaisy);
 		oxeyeDaisyRec.shape("did","pfp","eie");
 		oxeyeDaisyRec.setIngredient('d', Material.DIAMOND);
@@ -206,9 +196,10 @@ public class Utils {
 		Bukkit.getServer().addRecipe(oxeyeDaisyRec);
 		
 		
-		alliumMeta.setDisplayName("§d§lRegen Flower");
-		alliumMeta.setLore(Arrays.asList("§5Power: Regen players", "§bAmmo: 4 gold ingots"));
-		allium.setItemMeta(alliumMeta);
+		meta = allium.getItemMeta();
+		meta.setDisplayName(color("&d&lRegen Flower"));
+		meta.setLore(color(Arrays.asList("&5Power: Regen players", "&bAmmo: 4 gold ingots")));
+		allium.setItemMeta(meta);
 		ShapedRecipe alliumRec = new ShapedRecipe(allium);
 		alliumRec.shape("rdr","gfg","rdr");
 		alliumRec.setIngredient('r', Material.REDSTONE_BLOCK);
@@ -218,9 +209,10 @@ public class Utils {
 		Bukkit.getServer().addRecipe(alliumRec);
 		
 		
-		orangeTulipMeta.setDisplayName("§6§lPotato Flower");
-		orangeTulipMeta.setLore(Arrays.asList("§5Power: Turn players into potatoes", "§bAmmo: poisoned potato"));
-		orangeTulip.setItemMeta(orangeTulipMeta);
+		meta = orangeTulip.getItemMeta();
+		meta.setDisplayName(color("&6&lPotato Flower"));
+		meta.setLore(color(Arrays.asList("&5Power: Turn players into potatoes", "&bAmmo: poisoned potato")));
+		orangeTulip.setItemMeta(meta);
 		ShapedRecipe orangeTulipRec = new ShapedRecipe(orangeTulip);
 		orangeTulipRec.shape("pdp","dfd","pdp");
 		orangeTulipRec.setIngredient('d', Material.DIAMOND);
@@ -229,9 +221,10 @@ public class Utils {
 		Bukkit.getServer().addRecipe(orangeTulipRec);
 		
 		
-		azureBluetMeta.setDisplayName("§b§lSnowball Flower");
-		azureBluetMeta.setLore(Arrays.asList("§5Power: Shoot snowballs", "§bAmmo: snowball"));
-		azureBluet.setItemMeta(azureBluetMeta);
+		meta = azureBluet.getItemMeta();
+		meta.setDisplayName(color("&b&lSnowball Flower"));
+		meta.setLore(color(Arrays.asList("&5Power: Shoot snowballs", "&bAmmo: snowball")));
+		azureBluet.setItemMeta(meta);
 		ShapedRecipe azureBluetRec = new ShapedRecipe(azureBluet);
 		azureBluetRec.shape("dsd","sfs","wsw");
 		azureBluetRec.setIngredient('d', Material.DIAMOND);
@@ -241,9 +234,10 @@ public class Utils {
 		Bukkit.getServer().addRecipe(azureBluetRec);
 		
 		
-		whiteTulipMeta.setDisplayName("§f§lWeb Flower");
-		whiteTulipMeta.setLore(Arrays.asList("§5Power: Shoot webs", "§bAmmo: string"));
-		whiteTulip.setItemMeta(whiteTulipMeta);
+		meta = whiteTulip.getItemMeta();
+		meta.setDisplayName(color("&f&lWeb Flower"));
+		meta.setLore(color(Arrays.asList("&5Power: Shoot webs", "&bAmmo: string")));
+		whiteTulip.setItemMeta(meta);
 		ShapedRecipe whiteTulipRec = new ShapedRecipe(whiteTulip);
 		whiteTulipRec.shape("dsd","sfs","dsd");
 		whiteTulipRec.setIngredient('d', Material.DIAMOND);
@@ -268,6 +262,16 @@ public class Utils {
 		
 		@SuppressWarnings("unused")
 		Metrics metrics = new Metrics(FlowerPower.get());
+	}
+	
+	public static String color(String str) {
+		return ChatColor.translateAlternateColorCodes('&', str);
+	}
+	
+	public static List<String> color(List<String> strs){
+		List<String> colored = new ArrayList<>();
+		for(String s : strs) colored.add(color(s));
+		return colored;
 	}
 	
 }
