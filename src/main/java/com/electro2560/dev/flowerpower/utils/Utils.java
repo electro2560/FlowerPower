@@ -44,6 +44,14 @@ public class Utils {
 		return targetBlock.getLocation();
 	}
 	
+	/**
+	 * Returns empty list if none found.
+	 * 
+	 * @param loc
+	 * @param radius
+	 * @param skip
+	 * @return
+	 */
 	public static ArrayList<Player> getNearbyPlayers(Location loc, int radius, Player skip){
 		int chunkRadius = radius < 16 ? 1 : (radius - (radius % 16)) / 16;
 		HashSet<Entity> radiusEntites = new HashSet<Entity>();

@@ -44,12 +44,12 @@ public class FlowerListener implements Listener{
 					player.sendMessage(Utils.color("&cYou need ammo!"));
 					return;
 				}
-
+				
 				inv.remove(new ItemStack(Material.TRIPWIRE_HOOK, 1));
 
 				ArrayList<Player> nearby = Utils.getNearbyPlayers(Utils.getTargetBlock(player), 5, player);
 					
-				if(nearby == null || nearby.size() == 0){
+				if(nearby.size() == 0){
 					player.sendMessage(Utils.color("&cNo players found!"));
 					return;
 				}
@@ -156,7 +156,7 @@ public class FlowerListener implements Listener{
 
 				ArrayList<Player> nearby = Utils.getNearbyPlayers(Utils.getTargetBlock(player), 5, player);
 					
-				if(nearby == null || nearby.size() == 0){
+				if(nearby.size() == 0){
 					player.sendMessage(Utils.color("&cNo players found!"));
 					return;
 				}
@@ -181,7 +181,7 @@ public class FlowerListener implements Listener{
 
 				ArrayList<Player> nearby = Utils.getNearbyPlayers(Utils.getTargetBlock(player), 5, player);
 					
-				if(nearby == null || nearby.size() == 0){
+				if(nearby.size() == 0){
 					player.sendMessage(Utils.color("&cNo players found!"));
 					return;
 				}
@@ -211,7 +211,7 @@ public class FlowerListener implements Listener{
 
 				ArrayList<Player> nearby = Utils.getNearbyPlayers(Utils.getTargetBlock(player), 5, player);
 					
-				if(nearby == null || nearby.size() == 0){
+				if(nearby.size() == 0){
 					player.sendMessage(Utils.color("&cNo players found!"));
 					return;
 				}
@@ -240,7 +240,7 @@ public class FlowerListener implements Listener{
 
 				ArrayList<Player> nearby = Utils.getNearbyPlayers(Utils.getTargetBlock(player), 5, player);
 					
-				if(nearby == null || nearby.size() == 0){
+				if(nearby.size() == 0){
 					player.sendMessage(Utils.color("&cNo players found!"));
 					return;
 				}
