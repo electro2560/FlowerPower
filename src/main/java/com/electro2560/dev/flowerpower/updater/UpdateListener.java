@@ -1,7 +1,5 @@
 package com.electro2560.dev.flowerpower.updater;
 
-import java.beans.ConstructorProperties;
-
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
@@ -13,7 +11,6 @@ import com.electro2560.dev.flowerpower.utils.Utils;
 public class UpdateListener implements Listener {
 	private final FlowerPower plugin;
 
-	@ConstructorProperties({ "plugin" })
 	public UpdateListener(FlowerPower plugin) {
 		this.plugin = plugin;
 	}
