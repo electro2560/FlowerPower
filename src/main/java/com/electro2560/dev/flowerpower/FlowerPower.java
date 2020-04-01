@@ -1,7 +1,5 @@
 package com.electro2560.dev.flowerpower;
 
-import java.io.File;
-
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -21,7 +19,7 @@ public class FlowerPower extends JavaPlugin{
 	public void onEnable(){
 		instance = this;
 		
-		defaultConfig();
+		saveDefaultConfig();
 		
 		Utils.loadRecepies();
 		
@@ -35,21 +33,6 @@ public class FlowerPower extends JavaPlugin{
 	
 	public void onDisable(){
 		instance = null;
-	}
-	
-	public void defaultConfig(){
-		if(new File(getDataFolder() + File.separator + "config.yml").exists()) return;
-		
-		saveConfig();
-		
-		getConfig().addDefault("usePermissions", true);
-		getConfig().addDefault("useMetrics", true);
-		
-		getConfig().options().copyDefaults(true);
-		
-		saveConfig();
-		
-		reloadConfig();
 	}
 	
 	public static FlowerPower get(){

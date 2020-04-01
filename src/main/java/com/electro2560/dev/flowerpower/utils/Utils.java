@@ -10,6 +10,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.NamespacedKey;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.FallingBlock;
@@ -17,7 +18,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.ShapedRecipe;
 import org.bukkit.inventory.meta.ItemMeta;
-import org.bukkit.material.MaterialData;
 import org.bukkit.util.Vector;
 import org.mcstats.MetricsLite;
 
@@ -44,14 +44,14 @@ public class Utils {
 		return targetBlock.getLocation();
 	}
 	
-	public static ArrayList<Player> getNearbyPlayers(Location l, int radius, Player skip){
+	public static ArrayList<Player> getNearbyPlayers(Location loc, int radius, Player skip){
 		int chunkRadius = radius < 16 ? 1 : (radius - (radius % 16)) / 16;
 		HashSet<Entity> radiusEntites = new HashSet<Entity>();
 		for (int chX = 0 - chunkRadius; chX <= chunkRadius; chX++) {
 			for(int chZ = 0 - chunkRadius; chZ <= chunkRadius; chZ++){
-				int x = (int) l.getX(), y = (int) l.getY(), z = (int) l.getZ();
-				for(Entity e : new Location(l.getWorld(), x + (chX * 16), y, z + (chZ * 16)).getChunk().getEntities()){
-					if(e.getLocation().distance(l) <= radius && e.getLocation().getBlock() != l.getBlock()){
+				int x = (int) loc.getX(), y = (int) loc.getY(), z = (int) loc.getZ();
+				for(Entity e : new Location(loc.getWorld(), x + (chX * 16), y, z + (chZ * 16)).getChunk().getEntities()){
+					if(e.getLocation().distance(loc) <= radius && e.getLocation().getBlock() != loc.getBlock()){
 						radiusEntites.add(e);
 					}
 						
@@ -99,8 +99,8 @@ public class Utils {
 		player.setVelocity(vector.multiply(strength));
 	}
 	
-	public static void shootBlock(Material material, Player player, Byte data, Double forceMultiplyer){
-		FallingBlock block = player.getWorld().spawnFallingBlock(player.getLocation(), material, (byte) data);
+	public static void shootBlock(Material material, Player player, double forceMultiplyer){
+		FallingBlock block = player.getWorld().spawnFallingBlock(player.getLocation(), material.createBlockData());
 		
 		block.setDropItem(false);
 		block.setVelocity(player.getLocation().getDirection().multiply(forceMultiplyer));
@@ -115,16 +115,18 @@ public class Utils {
 	public static void loadRecepies(){
 		ItemMeta meta;
 		
+		FlowerPower fp = FlowerPower.get();
+		
 		meta = poppy.getItemMeta();
 		meta.setDisplayName(color("&c&lFireball Flower"));
 		meta.setLore(color(Arrays.asList("&5Power: Shoot fireballs", "&bAmmo: Firecharge + Flint & Steel")));
 		poppy.setItemMeta(meta);
-		ShapedRecipe poppyRec = new ShapedRecipe(poppy);
+		ShapedRecipe poppyRec = new ShapedRecipe(new NamespacedKey(fp, "fireball_flower"), poppy);
 		poppyRec.shape("ldl","cfc","dcd");
 		poppyRec.setIngredient('l', Material.LAVA_BUCKET);
 		poppyRec.setIngredient('d', Material.DIAMOND);
 		poppyRec.setIngredient('c', Material.FIRE_CHARGE);
-		poppyRec.setIngredient('f', new MaterialData(Material.POPPY));
+		poppyRec.setIngredient('f', Material.POPPY);
 		Bukkit.getServer().addRecipe(poppyRec);
 		
 		
@@ -132,7 +134,7 @@ public class Utils {
 		meta.setDisplayName(color("&c&lFire Flower"));
 		meta.setLore(color(Arrays.asList("&5Power: Shoot fire", "&bAmmo: Flint & Steel")));
 		redTulip.setItemMeta(meta);
-		ShapedRecipe redTulipRec = new ShapedRecipe(redTulip);
+		ShapedRecipe redTulipRec = new ShapedRecipe(new NamespacedKey(fp, "fire_flower"), redTulip);
 		redTulipRec.shape("gbg","bfb","gbg");
 		redTulipRec.setIngredient('g', Material.GOLD_INGOT);
 		redTulipRec.setIngredient('b', Material.BLAZE_ROD);
@@ -144,7 +146,7 @@ public class Utils {
 		meta.setDisplayName(color("&b&lIce Flower"));
 		meta.setLore(color(Arrays.asList("&5Power: Shoot blocks of ice", "&bAmmo: Ice")));
 		blueOrchid.setItemMeta(meta);
-		ShapedRecipe blueOrchidRec = new ShapedRecipe(blueOrchid);
+		ShapedRecipe blueOrchidRec = new ShapedRecipe(new NamespacedKey(fp, "ice_flower"), blueOrchid);
 		blueOrchidRec.shape("wlw","dfd","ili");
 		blueOrchidRec.setIngredient('w', Material.WATER_BUCKET);
 		blueOrchidRec.setIngredient('l', Material.LAPIS_BLOCK);
@@ -158,7 +160,7 @@ public class Utils {
 		meta.setDisplayName(color("&6&lKnockback Flower"));
 		meta.setLore(color(Arrays.asList("&5Power: Knockback players", "&bAmmo: Tripwire hook")));
 		dandelion.setItemMeta(meta);
-		ShapedRecipe dandelionRec = new ShapedRecipe(dandelion);
+		ShapedRecipe dandelionRec = new ShapedRecipe(new NamespacedKey(fp, "knockback_flower"), dandelion);
 		dandelionRec.shape("gpg","pfp","ibi");
 		dandelionRec.setIngredient('g', Material.GOLD_INGOT);
 		dandelionRec.setIngredient('p', Material.FISHING_ROD);
@@ -172,7 +174,7 @@ public class Utils {
 		meta.setDisplayName(color("&b&lPull Flower"));
 		meta.setLore(color(Arrays.asList("&5Power: Pull players", "&bAmmo: Tripwire hook")));
 		pinkTulip.setItemMeta(meta);
-		ShapedRecipe pinkTulipRec = new ShapedRecipe(pinkTulip);
+		ShapedRecipe pinkTulipRec = new ShapedRecipe(new NamespacedKey(fp, "pull_flower"), pinkTulip);
 		pinkTulipRec.shape("dpd","pfp","ibi");
 		pinkTulipRec.setIngredient('d', Material.DIAMOND);
 		pinkTulipRec.setIngredient('p', Material.FISHING_ROD);
@@ -186,7 +188,7 @@ public class Utils {
 		meta.setDisplayName(color("&5&lConfusion Flower"));
 		meta.setLore(color(Arrays.asList("&5Power: Confuse players", "&bAmmo: Spider eye")));
 		oxeyeDaisy.setItemMeta(meta);
-		ShapedRecipe oxeyeDaisyRec = new ShapedRecipe(oxeyeDaisy);
+		ShapedRecipe oxeyeDaisyRec = new ShapedRecipe(new NamespacedKey(fp, "confusion_flower"), oxeyeDaisy);
 		oxeyeDaisyRec.shape("did","pfp","eie");
 		oxeyeDaisyRec.setIngredient('d', Material.DIAMOND);
 		oxeyeDaisyRec.setIngredient('i', Material.INK_SAC);
@@ -213,7 +215,7 @@ public class Utils {
 		meta.setDisplayName(color("&6&lPotato Flower"));
 		meta.setLore(color(Arrays.asList("&5Power: Turn players into potatoes", "&bAmmo: poisoned potato")));
 		orangeTulip.setItemMeta(meta);
-		ShapedRecipe orangeTulipRec = new ShapedRecipe(orangeTulip);
+		ShapedRecipe orangeTulipRec = new ShapedRecipe(new NamespacedKey(fp, "potato_flower"), orangeTulip);
 		orangeTulipRec.shape("pdp","dfd","pdp");
 		orangeTulipRec.setIngredient('d', Material.DIAMOND);
 		orangeTulipRec.setIngredient('p', Material.POISONOUS_POTATO);
@@ -225,7 +227,7 @@ public class Utils {
 		meta.setDisplayName(color("&b&lSnowball Flower"));
 		meta.setLore(color(Arrays.asList("&5Power: Shoot snowballs", "&bAmmo: snowball")));
 		azureBluet.setItemMeta(meta);
-		ShapedRecipe azureBluetRec = new ShapedRecipe(azureBluet);
+		ShapedRecipe azureBluetRec = new ShapedRecipe(new NamespacedKey(fp, "snowball_flower"), azureBluet);
 		azureBluetRec.shape("dsd","sfs","wsw");
 		azureBluetRec.setIngredient('d', Material.DIAMOND);
 		azureBluetRec.setIngredient('s', Material.SNOW_BLOCK);
@@ -238,7 +240,7 @@ public class Utils {
 		meta.setDisplayName(color("&f&lWeb Flower"));
 		meta.setLore(color(Arrays.asList("&5Power: Shoot webs", "&bAmmo: string")));
 		whiteTulip.setItemMeta(meta);
-		ShapedRecipe whiteTulipRec = new ShapedRecipe(whiteTulip);
+		ShapedRecipe whiteTulipRec = new ShapedRecipe(new NamespacedKey(fp, "web_flower"), whiteTulip);
 		whiteTulipRec.shape("dsd","sfs","dsd");
 		whiteTulipRec.setIngredient('d', Material.DIAMOND);
 		whiteTulipRec.setIngredient('s', Material.STRING);

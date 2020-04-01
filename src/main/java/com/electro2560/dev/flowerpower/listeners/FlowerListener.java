@@ -25,8 +25,7 @@ public class FlowerListener implements Listener{
 	public void onPlayerInteract(PlayerInteractEvent event){
 		Player player = event.getPlayer();
 		
-		@SuppressWarnings("deprecation")
-		ItemStack stack = player.getItemInHand();
+		ItemStack stack = player.getInventory().getItemInMainHand();
 	
 		Inventory inv = player.getInventory();
 		
@@ -40,7 +39,7 @@ public class FlowerListener implements Listener{
 
 			event.setCancelled(true);
 
-			if ((FlowerPower.usePermissions && player.hasPermission(Perms.dandelion)) || !FlowerPower.usePermissions) {
+			if ((player.hasPermission(Perms.dandelion)) || !FlowerPower.usePermissions) {
 				if (!inv.contains(Material.TRIPWIRE_HOOK, 1)) {
 					player.sendMessage(Utils.color("&cYou need ammo!"));
 					return;
@@ -65,7 +64,7 @@ public class FlowerListener implements Listener{
 
 			event.setCancelled(true);
 
-			if ((FlowerPower.usePermissions && player.hasPermission(Perms.poppy)) || !FlowerPower.usePermissions) {
+			if ((player.hasPermission(Perms.poppy)) || !FlowerPower.usePermissions) {
 				if (!inv.contains(Material.TRIPWIRE_HOOK, 1) || !inv.contains(Material.FLINT_AND_STEEL, 1)) {
 					player.sendMessage(Utils.color("&cYou need ammo!"));
 					return;
@@ -96,7 +95,7 @@ public class FlowerListener implements Listener{
 
 			event.setCancelled(true);
 
-			if ((FlowerPower.usePermissions && player.hasPermission(Perms.redtulip)) || !FlowerPower.usePermissions) {
+			if ((player.hasPermission(Perms.redtulip)) || !FlowerPower.usePermissions) {
 				if (!inv.contains(Material.FLINT_AND_STEEL, 1)) {
 					player.sendMessage(Utils.color("&cYou need ammo!"));
 					return;
@@ -125,15 +124,15 @@ public class FlowerListener implements Listener{
 
 			event.setCancelled(true);
 			
-			if ((FlowerPower.usePermissions && player.hasPermission(Perms.blueorchid)) || !FlowerPower.usePermissions) {
+			if ((player.hasPermission(Perms.blueorchid)) || !FlowerPower.usePermissions) {
 				if (inv.contains(Material.ICE, 1)) {
 					inv.remove(new ItemStack(Material.ICE, 1));
 					
-					Utils.shootBlock(Material.ICE, player, (byte) 0, 2D);
+					Utils.shootBlock(Material.ICE, player, 2);
 				}else if(inv.contains(Material.PACKED_ICE)){
 					inv.remove(new ItemStack(Material.PACKED_ICE, 1));
 					
-					Utils.shootBlock(Material.PACKED_ICE, player, (byte) 0, 2D);
+					Utils.shootBlock(Material.PACKED_ICE, player, 2);
 				}else{
 					player.sendMessage(Utils.color("&cYou need ammo!"));
 					return;
@@ -147,7 +146,7 @@ public class FlowerListener implements Listener{
 
 			event.setCancelled(true);
 			
-			if ((FlowerPower.usePermissions && player.hasPermission(Perms.pinktulip)) || !FlowerPower.usePermissions) {
+			if ((player.hasPermission(Perms.pinktulip)) || !FlowerPower.usePermissions) {
 				if (!inv.contains(Material.TRIPWIRE_HOOK, 1)) {
 					player.sendMessage(Utils.color("&cYou need ammo!"));
 					return;
@@ -172,7 +171,7 @@ public class FlowerListener implements Listener{
 
 			event.setCancelled(true);
 
-			if ((FlowerPower.usePermissions && player.hasPermission(Perms.oxeyedaisy)) || !FlowerPower.usePermissions) {
+			if ((player.hasPermission(Perms.oxeyedaisy)) || !FlowerPower.usePermissions) {
 				if (!inv.contains(Material.SPIDER_EYE, 1)) {
 					player.sendMessage(Utils.color("&cYou need ammo!"));
 					return;
@@ -202,7 +201,7 @@ public class FlowerListener implements Listener{
 
 			event.setCancelled(true);
 
-			if ((FlowerPower.usePermissions && player.hasPermission(Perms.allium)) || !FlowerPower.usePermissions) {
+			if ((player.hasPermission(Perms.allium)) || !FlowerPower.usePermissions) {
 				if (!inv.contains(Material.GOLD_INGOT, 4)) {
 					player.sendMessage(Utils.color("&cYou need ammo!"));
 					return;
@@ -231,7 +230,7 @@ public class FlowerListener implements Listener{
 
 			event.setCancelled(true);
 
-			if ((FlowerPower.usePermissions && player.hasPermission(Perms.orangetulip)) || !FlowerPower.usePermissions) {
+			if ((player.hasPermission(Perms.orangetulip)) || !FlowerPower.usePermissions) {
 				if (!inv.contains(Material.POISONOUS_POTATO, 1)) {
 					player.sendMessage(Utils.color("&cYou need ammo!"));
 					return;
@@ -256,7 +255,7 @@ public class FlowerListener implements Listener{
 
 			event.setCancelled(true);
 			
-			if ((FlowerPower.usePermissions && player.hasPermission(Perms.azurebluet)) || !FlowerPower.usePermissions) {
+			if ((player.hasPermission(Perms.azurebluet)) || !FlowerPower.usePermissions) {
 				if (!inv.contains(Material.SNOWBALL, 1)) {
 					player.sendMessage(Utils.color("&cYou need ammo!"));
 					return;
@@ -274,7 +273,7 @@ public class FlowerListener implements Listener{
 
 			event.setCancelled(true);
 
-			if ((FlowerPower.usePermissions && player.hasPermission(Perms.whitetulip)) || !FlowerPower.usePermissions) {
+			if ((player.hasPermission(Perms.whitetulip)) || !FlowerPower.usePermissions) {
 				if (!inv.contains(Material.STRING, 1)) {
 					player.sendMessage(Utils.color("&cYou need ammo!"));
 					return;
@@ -282,7 +281,7 @@ public class FlowerListener implements Listener{
 
 				inv.remove(new ItemStack(Material.STRING, 1));
 
-				Utils.shootBlock(Material.COBWEB, player, (byte) 0, 2D);
+				Utils.shootBlock(Material.COBWEB, player, 2);
 			}else player.sendMessage(Utils.color("&cNo permission!"));
 		}
 
